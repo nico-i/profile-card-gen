@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Profile Card</title>
+    <meta charset="UTF-8">
+    <base href={{ .BasePath }}>
+<link rel="stylesheet"
+          href="/public/styles/styles.css" media="print">
+    <link rel="stylesheet"
+          href="/public/styles/styles.css">
+</head>
+
+<body>
+<img src="/public/images/bg_tmpl.jpg" alt="Background image" class="img-bg">
+<img src="https://picsum.photos/500/500" alt="User image" class="img-user"/>
+
+<div class="div-details">
+    <h1 style="margin-bottom: 0.3rem;">{{ .User.Firstname }} {{ .User.Lastname }}</h1>
+    <ul>
+        <li>Role: {{ .User.Role }}</li>
+        <li>Team: {{ .User.Team }}</li>
+        <li>Location: {{ .User.WorksAt }}</li>
+    </ul>
+</div>
+
+</body>
+
+</html>
