@@ -38,6 +38,7 @@ func GenerateProfileCard(w http.ResponseWriter, r *http.Request) {
 			Other:       r.Form["other"],
 		}
 	*/
+
 	userData := types.User{
 		Firstname:   "Max",
 		Lastname:    "Mustermann",
@@ -48,10 +49,10 @@ func GenerateProfileCard(w http.ResponseWriter, r *http.Request) {
 		Hometown:    "Buxdehude",
 		Quote:       "Good quote.exe",
 		Photo:       nil,
-		HasWorkedAt: nil,
-		Skills:      nil,
-		Interests:   nil,
-		Other:       nil,
+		HasWorkedAt: []string{"for suxess", "AStA of the RheinMain\nUniversity of Applied Science"},
+		Skills:      []string{"Web development", "Automation", "Graphic design"},
+		Interests:   []string{"Photography", "Guitar", "Machine Learning"},
+		Other:       []string{"Always open to conversation", "Excited to learn"},
 	}
 
 	data := types.Data{
@@ -89,10 +90,10 @@ func ShowProfileCardPage(w http.ResponseWriter, r *http.Request) {
 		Hometown:    "Simmern, Germany",
 		Quote:       "“In the beginning there was Nothing, but Nothing is unstable, so Something came about.” ― Exurb1a, The Bridge to Lucy Dunne",
 		Photo:       nil,
-		HasWorkedAt: nil,
-		Skills:      nil,
-		Interests:   nil,
-		Other:       nil,
+		HasWorkedAt: []string{"for suxess", "AStA of the RheinMain\nUniversity of Applied Science"},
+		Skills:      []string{"Web development", "Automation", "Graphic design"},
+		Interests:   []string{"Photography", "Guitar", "Machine Learning"},
+		Other:       []string{"Always open to conversation", "Excited to learn"},
 	}
 
 	data := types.Data{

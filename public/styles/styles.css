@@ -2,7 +2,7 @@
 
 @font-face {
     font-family: "Roboto";
-    url("/public/fonts/Roboto-Regular.ttf") format('truetype');
+url("/public/fonts/Roboto-Regular.ttf") format('truetype');
     font-weight: 400;
     font-style: normal;
 }
@@ -11,7 +11,7 @@
 
 @font-face {
     font-family: "Roboto";
-    url('/public/fonts/Roboto-Italic.ttf') format('truetype');
+url('/public/fonts/Roboto-Italic.ttf') format('truetype');
     font-weight: 400;
     font-style: italic;
 }
@@ -20,7 +20,7 @@
 
 @font-face {
     font-family: "Roboto";
-    url('/public/fonts/Roboto-Bold.ttf') format('truetype');
+url('/public/fonts/Roboto-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
 }
@@ -39,16 +39,16 @@ html {
 
 body {
     /* A5 dimensions */
-    width: 29.71cm;
-    height: 21cm;
-    font-size: 14pt;
+    width: 297.1mm;
+    height: 209mm;
+    font-size: 12pt;
     color: rgb(69, 69, 69);
     margin: 0;
 }
 
 h1, h2, h3, h4 {
     margin: 0;
-    color: #113069;
+    color: rgb(20, 45, 104);
     font-weight: bolder;
 }
 
@@ -56,33 +56,116 @@ h1 {
     font-size: 24pt;
 }
 
-ul {
-    padding: 0;
-    margin: 0;
+h2 {
+    font-size: 16pt;
+    margin-bottom: 10px;
+    min-width: 200px;
 }
 
-.img-bg {
-    width: 29.71cm;
-    height: 21cm;
+ul {
+    max-width: 200px;
+    margin: 11px 0 36px 23px;
+    padding: 0;
+    list-style: none; /* Remove default bullets */
+}
+
+ul li::before {
+    content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: rgb(108, 78, 145); /* Change the color */
+    font-weight: bold; /* If you want it to be bold */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1em; /* Also needed for space (tweak if needed) */
+    line-height: 1.8;
+    margin-left: -15px;
+}
+
+#bg {
+    width: 297.1mm;
+    height: 209mm;
     top: 0;
     position: absolute;
     z-index: -10;
 }
 
-.img-user {
+#photo {
     border-radius: 100rem;
     height: 297px;
     position: absolute;
-    top: 148px;
-    left: 730px;
+    top: 146px;
+    left: 729px;
 }
 
-.div-details {
-    margin-top: 8.9rem;
-    margin-left: 3.2rem;
+#quote {
+    margin: 0;
+    padding: 0;
+    font-style: italic;
+    position: absolute;
+    top: 515px;
+    left: 680px;
+    font-size: 16pt;
+    width: 400px;
+    text-align: center;
 }
 
-.div-details > ul {
+#details {
+    position: absolute;
+    top: 142px;
+    left: 50px;
+    font-size: 14pt;
+}
+
+#details > ul {
+    max-width: 1000px;
+    margin: 0;
     list-style-type: none;
     line-height: 1.35;
+}
+
+#details > ul li::before {
+    content: none;
+}
+
+#hometown {
+    position: absolute;
+    left: 51px;
+    top: 299px;
+}
+
+#city {
+    position: absolute;
+    left: 379px;
+    top: 299px;
+}
+
+#workedFor {
+    position: absolute;
+    left: 51px;
+    top: 400px;
+}
+
+#interests {
+    position: absolute;
+    left: 379px;
+    top: 400px;
+}
+
+#skills {
+    position: absolute;
+    left: 51px;
+    top: 581px;
+}
+
+#other {
+    position: absolute;
+    left: 379px;
+    top: 581px;
+}
+
+#separator {
+    position: absolute;
+    left: 313px;
+    top: 293px;
+    height: 418px;
+    width: 0.75pt;
+    background-color: rgb(69, 69, 69);
 }
