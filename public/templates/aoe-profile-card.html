@@ -13,7 +13,7 @@
 
 <body>
 <img src="/public/images/bg.jpg" alt="Background image" id="bg">
-<img src="https://picsum.photos/500/500" alt="User image" id="photo"/>
+<img src="data:image/png;base64,{{.User.Photo}}" alt="User image" id="photo"/>
 <blockquote id="quote">{{ .User.Quote }}</blockquote>
 <div id="details">
     <h1 style="margin-bottom: 0.3rem;">{{ .User.Firstname }} {{ .User.Lastname }}</h1>

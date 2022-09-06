@@ -7,7 +7,7 @@ import (
 	"html/template"
 )
 
-func GeneratePDF(data *types.Data, templatePath string) ([]byte, error) {
+func GeneratePDF(data *types.TemplateData, templatePath string) ([]byte, error) {
 	var templ *template.Template
 	var err error
 
@@ -33,7 +33,7 @@ func GeneratePDF(data *types.Data, templatePath string) ([]byte, error) {
 
 	// enable this if the HTML file contains local references such as images, CSS, etc.
 	page.EnableLocalFileAccess.Set(true)
-
+	page.DisableInternalLinks.Set(true)
 	// add the page to your generator
 	pdfg.AddPage(page)
 
