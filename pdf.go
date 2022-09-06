@@ -3,11 +3,10 @@ package main
 import (
 	"bytes"
 	"github.com/SebastiaanKlippert/go-wkhtmltopdf"
-	"github.com/nico-i/profile-card-gen/types"
 	"html/template"
 )
 
-func GeneratePDF(data *types.TemplateData, templatePath string) ([]byte, error) {
+func GeneratePDF(data *TemplateData, templatePath string) ([]byte, error) {
 	var templ *template.Template
 	var err error
 
