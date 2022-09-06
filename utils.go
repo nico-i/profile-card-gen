@@ -5,7 +5,6 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
-	"github.com/nico-i/profile-card-gen/types"
 	"image/jpeg"
 	"image/png"
 	"io"
@@ -15,13 +14,13 @@ import (
 )
 
 // GenerateTemplateData extracts the relevant data from a multipart form and returns types.TemplateData
-func GenerateTemplateData(r *http.Request) (types.TemplateData, error) {
+func GenerateTemplateData(r *http.Request) (TemplateData, error) {
 	_, base64Str, err := HandleImageUpload(r, "photo")
 	if err != nil {
-		return types.TemplateData{}, err
+		return TemplateData{}, err
 	}
-	return types.TemplateData{
-		User: types.User{
+	return TemplateData{
+		User: User{
 			Firstname:   r.PostFormValue("firstname"),
 			Lastname:    r.PostFormValue("lastname"),
 			Role:        r.PostFormValue("role"),

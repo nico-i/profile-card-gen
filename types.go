@@ -1,4 +1,4 @@
-package types
+package main
 
 // User represents the user wanting to generate
 // a profile card.
@@ -16,4 +16,11 @@ type User struct {
 	Skills      []string `json:"skills"`
 	Interests   []string `json:"interests"`
 	Other       []string `json:"other"`
+}
+
+// TemplateData contains all the necessary data
+// to fill a profile card HTML template
+type TemplateData struct {
+	User     User
+	BasePath string
 }

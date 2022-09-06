@@ -1,13 +1,12 @@
 package main
 
 import (
-	"github.com/nico-i/profile-card-gen/types"
 	"testing"
 )
 
 func TestGeneratePDF(t *testing.T) {
-	data := types.TemplateData{
-		User: types.User{
+	data := TemplateData{
+		User: User{
 			Firstname:   "Max",
 			Lastname:    "Mustermann",
 			Role:        "Chef",

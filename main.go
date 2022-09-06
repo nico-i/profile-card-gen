@@ -12,6 +12,7 @@ func main() {
 	http.HandleFunc(
 		"/", GenerateProfileCard,
 	)
+	// TODO Add routing for "/show" to enable preview of template
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
