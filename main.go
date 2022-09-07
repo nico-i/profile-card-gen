@@ -16,8 +16,8 @@ func main() {
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
-// GenerateProfileCard generates a PDF of from the inputted multipart form data
-// and returns it.
+// GenerateProfileCard generates a PDF of from the inputted
+// multipart form data and returns it.
 func GenerateProfileCard(w http.ResponseWriter, r *http.Request) {
 	err := r.ParseMultipartForm(32 << 20)
 	if err != nil {
@@ -44,7 +44,8 @@ func GenerateProfileCard(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-// ShowProfileCardPage shows the generated profile card as an HTML page.
+// ShowProfileCardPage shows the generated profile card
+// as an HTML page.
 func ShowProfileCardPage(w http.ResponseWriter, r *http.Request) {
 	data, err := GenerateTemplateData(r)
 	if err != nil {
