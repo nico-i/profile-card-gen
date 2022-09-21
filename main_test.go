@@ -4,6 +4,7 @@ import (
 	"testing"
 )
 
+// TestGeneratePDF is a functional / component test to test if the system works cohesively
 func TestGeneratePDF(t *testing.T) {
 	data := TemplateData{
 		User: User{
