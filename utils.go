@@ -5,38 +5,50 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
+	"html"
 	"image/jpeg"
 	"image/png"
 	"io"
 	"log"
 	"mime/multipart"
 	"net/http"
+	"reflect"
 )
 
 // GenerateTemplateData extracts the relevant data from a multipart form and returns types.TemplateData
 func GenerateTemplateData(r *http.Request) (TemplateData, error) {
-	_, base64Str, err := HandleImageUpload(r, "photo")
+	err := r.ParseMultipartForm(32 << 20)
 	if err != nil {
 		return TemplateData{}, err
 	}
-	return TemplateData{
+
+	data := TemplateData{
 		User: User{
-			Firstname:   r.PostFormValue("firstname"),
-			Lastname:    r.PostFormValue("lastname"),
-			Role:        r.PostFormValue("role"),
-			City:        r.PostFormValue("city"),
-			Team:        r.PostFormValue("team"),
-			WorksAt:     r.PostFormValue("works_at"),
-			Hometown:    r.PostFormValue("hometown"),
-			Quote:       r.PostFormValue("quote"),
-			Photo:       base64Str,
-			HasWorkedAt: r.Form["has_worked_at"],
-			Skills:      r.Form["skills"],
-			Interests:   r.Form["interests"],
-			Other:       r.Form["other"],
+			Firstname: r.PostFormValue("firstname"),
+			Lastname:  r.PostFormValue("lastname"),
+			Role:      r.PostFormValue("role"),
+			City:      r.PostFormValue("city"),
+			Team:      r.PostFormValue("team"),
+			WorksAt:   r.PostFormValue("works_at"),
+			Hometown:  r.PostFormValue("hometown"),
+			Quote:     r.PostFormValue("quote"),
 		},
 		BasePath: "http://" + r.Host + r.URL.Path,
-	}, nil
+	}
+	data.User.HasWorkedAt = deleteAndEscapeStringArr(r.Form["has_worked_at"])
+	data.User.Skills = deleteAndEscapeStringArr(r.Form["skills"])
+	data.User.Interests = deleteAndEscapeStringArr(r.Form["interests"])
+	data.User.Other = deleteAndEscapeStringArr(r.Form["other"])
+	if len(data.User.Other) == 0 {
+		data.User.Other = nil
+	}
+	_, base64Str, err := HandleImageUpload(r, "photo")
+	if err != nil {
+		data.User.Errors["Photo"] = ""
+		return TemplateData{}, err
+	}
+	data.User.Photo = base64Str
+	return data, nil
 }
 
 // HandleImageUpload encodes an image uploaded through a
@@ -44,6 +56,9 @@ func GenerateTemplateData(r *http.Request) (TemplateData, error) {
 func HandleImageUpload(r *http.Request, formFileName string) (string, string, error) {
 	// Maximum upload of 32 MB files
 	file, handler, err := r.FormFile(formFileName)
+	if err != nil {
+		return "", "", err
+	}
 
 	defer func(file multipart.File) {
 		err := file.Close()
@@ -52,11 +67,6 @@ func HandleImageUpload(r *http.Request, formFileName string) (string, string, er
 			return
 		}
 	}(file)
-
-	fmt.Printf("Uploaded File: %+v\n", handler.Filename)
-	fmt.Printf("File Size: %+v\n", handler.Size)
-	fmt.Printf("MIME Header: %+v\n", handler.Header)
-
 	data, err := io.ReadAll(file)
 	if err != nil {
 		log.Println(err)
@@ -105,4 +115,25 @@ func handleError(w http.ResponseWriter, err error, errorCode int) {
 		log.Fatalf("Error happened while writing JSON. Err: %s", err)
 	}
 	return
+}
+
+func deleteAndEscapeStringArr(s []string) []string {
+	var r []string
+	for _, str := range s {
+		if str != "" {
+			r = append(r, html.EscapeString(str))
+		}
+	}
+	return r
+}
+
+func escapeNonArrayTemplateDate(data *TemplateData) {
+	value := reflect.ValueOf(data).Elem()
+	for i := 0; i < value.NumField(); i++ {
+		field := value.Field(i)
+		if field.Type() == reflect.TypeOf("") {
+			str := field.Interface().(string)
+			field.SetString(html.EscapeString(str))
+		}
+	}
 }

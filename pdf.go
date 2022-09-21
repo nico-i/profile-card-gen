@@ -6,22 +6,30 @@ import (
 	"html/template"
 )
 
+// TemplateData contains all the necessary data
+// to fill a profile card HTML template
+type TemplateData struct {
+	User     User
+	BasePath string
+	Preview  bool
+}
+
 func GeneratePDF(data *TemplateData, templatePath string) ([]byte, error) {
-	var templ *template.Template
+	var tmpl *template.Template
 	var err error
 
 	// use Go's default HTML template generation tools to generate your HTML
-	if templ, err = template.ParseFiles(templatePath); err != nil {
+	if tmpl, err = template.ParseFiles(templatePath); err != nil {
 		return nil, err
 	}
 
 	// apply the parsed HTML template data and keep the result in a Buffer
 	var body bytes.Buffer
-	if err = templ.Execute(&body, data); err != nil {
+	if err = tmpl.Execute(&body, data); err != nil {
 		return nil, err
 	}
 
-	// initalize a wkhtmltopdf generator
+	// initialize a wkhtmltopdf generator
 	pdfg, err := wkhtmltopdf.NewPDFGenerator()
 	if err != nil {
 		return nil, err

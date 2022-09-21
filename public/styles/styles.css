@@ -25,30 +25,28 @@ url('/public/fonts/Roboto-Bold.ttf') format('truetype');
     font-style: normal;
 }
 
-@page {
-    /* dimensions for the whole page */
-    size: A5;
-    margin: 0;
+:root {
+    --bg-color-light: #eee;
+    --bg-color-dark: #606b72;
+    --branding-color-light: #173d7a;
+    --branding-color-dark: #142D68;
+    --branding-color-light-hover: #0f284f;
+    --text-color: #454545;
+    --text-color-light: #b3b2b2;
 }
 
+
 html {
-    /* off-white, so body edge is visible in browser */
-    background: #eee;
     font-family: 'Roboto', sans-serif;
 }
 
 body {
-    /* A5 dimensions */
-    width: 297.1mm;
-    height: 209mm;
-    font-size: 12pt;
-    color: rgb(69, 69, 69);
+    color:  var(--text-color);
     margin: 0;
 }
 
 h1, h2, h3, h4 {
     margin: 0;
-    color: rgb(20, 45, 104);
     font-weight: bolder;
 }
 
@@ -62,110 +60,6 @@ h2 {
     min-width: 200px;
 }
 
-ul {
-    max-width: 200px;
-    margin: 11px 0 36px 23px;
-    padding: 0;
-    list-style: none; /* Remove default bullets */
-}
-
-ul li::before {
-    content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
-    color: rgb(108, 78, 145); /* Change the color */
-    font-weight: bold; /* If you want it to be bold */
-    display: inline-block; /* Needed to add space between the bullet and the text */
-    width: 1em; /* Also needed for space (tweak if needed) */
-    line-height: 1.8;
-    margin-left: -15px;
-}
-
-#bg {
-    width: 297.1mm;
-    height: 209mm;
-    top: 0;
-    position: absolute;
-    z-index: -10;
-}
-
-#photo {
-    border-radius: 100rem;
-    height: 297px;
-    position: absolute;
-    top: 146px;
-    left: 729px;
-}
-
-#quote {
+p {
     margin: 0;
-    padding: 0;
-    font-style: italic;
-    position: absolute;
-    top: 515px;
-    left: 680px;
-    font-size: 16pt;
-    width: 400px;
-    text-align: center;
-}
-
-#details {
-    position: absolute;
-    top: 142px;
-    left: 50px;
-    font-size: 14pt;
-}
-
-#details > ul {
-    max-width: 1000px;
-    margin: 0;
-    list-style-type: none;
-    line-height: 1.35;
-}
-
-#details > ul li::before {
-    content: none;
-}
-
-#hometown {
-    position: absolute;
-    left: 51px;
-    top: 299px;
-}
-
-#city {
-    position: absolute;
-    left: 379px;
-    top: 299px;
-}
-
-#workedFor {
-    position: absolute;
-    left: 51px;
-    top: 400px;
-}
-
-#interests {
-    position: absolute;
-    left: 379px;
-    top: 400px;
-}
-
-#skills {
-    position: absolute;
-    left: 51px;
-    top: 581px;
-}
-
-#other {
-    position: absolute;
-    left: 379px;
-    top: 581px;
-}
-
-#separator {
-    position: absolute;
-    left: 313px;
-    top: 293px;
-    height: 418px;
-    width: 0.75pt;
-    background-color: rgb(69, 69, 69);
 }

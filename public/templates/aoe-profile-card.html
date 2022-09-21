@@ -9,6 +9,10 @@
           href="/public/styles/styles.css" media="print">
     <link rel="stylesheet"
           href="/public/styles/styles.css">
+    <link rel="stylesheet"
+          href="/public/styles/cardStyle.css" media="print">
+    <link rel="stylesheet"
+          href="/public/styles/cardStyle.css">
 </head>
 
 <body>
@@ -63,6 +67,7 @@
         {{ end }}
     </ul>
 </div>
+{{ if .User.Other }}
 <div id="other">
     <h2>Other</h2>
     <ul>
@@ -71,6 +76,7 @@
         {{ end }}
     </ul>
 </div>
+{{ end }}
 <!-- Separator -->
 <div id="separator">
 </div>

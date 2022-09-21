@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Profile Card Generator</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"
+          href="/public/styles/styles.css">
+    <link rel="stylesheet"
+          href="/public/styles/formStyle.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="//cdn3.aoe.com/typo3conf/ext/aoeweb_base/Resources/Public/Images/Favicons/aoe/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="//cdn1.aoe.com/typo3conf/ext/aoeweb_base/Resources/Public/Images/Favicons/aoe/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="//cdn2.aoe.com/typo3conf/ext/aoeweb_base/Resources/Public/Images/Favicons/aoe/favicon-16x16.png">
+</head>
+<body>
+<div class="h-min-screen container">
+<div class="form-box">
+<h1>AOE Profile Card Generator</h1>
+<form action="/gen" method="post" enctype="multipart/form-data">
+    <div class="grid-container" style="grid-template-columns: 1fr 1fr 1fr;">
+    <label for="firstname" class="">Firstname*
+        <input required type="text" name="firstname" id="firstname">
+    </label>
+    <label for="lastname">Lastname*
+        <input required type="text" name="lastname" id="lastname">
+    </label>
+    <label for="role">Role*
+        <input required type="text" name="role" id="role">
+    </label>
+    <label for="team">Team*
+        <input required type="text" name="team" id="team">
+    </label>
+    <label for="works_at">Works at*
+        <input required type="text" name="works_at" id="works_at">
+    </label>
+    <label for="city">Lives in*
+        <input required type="text" name="city" id="city">
+    </label>
+    </div>
+    <label for="hometown" class="w-full">Comes from*
+        <input required type="text" name="hometown" id="hometown">
+    </label>
+
+    <label for="quote" class="w-full">Quote*
+        <textarea class="w-full" required rows="5" name="quote" id="quote"></textarea>
+    </label>
+    <div class="grid-container" style="grid-template-columns: 1fr 1fr;">
+        <label>Has worked at
+            <input type="text" name="has_worked_at">
+            <input type="text" name="has_worked_at">
+            <input type="text" name="has_worked_at">
+        </label>
+        <label>Skills**
+            <input required type="text" name="skills">
+            <input type="text" name="skills">
+            <input type="text" name="skills">
+        </label>
+        <label>Interests**
+            <input required type="text" name="interests">
+            <input type="text" name="interests">
+            <input type="text" name="interests">
+        </label>
+        <label>Other
+            <input type="text" name="other">
+            <input type="text" name="other">
+            <input type="text" name="other">
+        </label>
+    </div>
+    <label for="photo" class="w-full">Select a photo*
+        <input class="cursor-pointer" required id="photo" name="photo" type="file" accept=".png,.jpg"/><br />
+        <span class="hint">Include a square image of yourself of the type ".png" or ".jpg".</span>
+    </label>
+    <p class="footmarks">
+        *required
+        **at least one entry is required
+    </p>
+    <div class="container w-full text-center">
+    <button type="submit">Download Profile Card</button>
+    </div>
+</form>
+</div></div>
+</body>
+</html>
