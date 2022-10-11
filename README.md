@@ -11,19 +11,27 @@ requests and generating a profile card PDF from the provided data.
 
 1. Clone the repository 
 
-`git clone https://github.com/nico-i/profile-card-gen`
+```shell
+git clone https://github.com/nico-i/profile-card-gen
+```
 
 2. Navigate to the project directory
 
-`cd profile-card-gen`
+```shell
+cd profile-card-gen
+```
 
 3. Install all dependencies
- 
-`go get .`
+
+```shell
+go get .
+```
 
 4. Run the service
 
-`go run .`
+```shell
+go run .
+```
 
 5. Try it out under [localhost:3000](http://localhost:3000)
 
