@@ -45,6 +45,10 @@ button:hover {
     background: #0f284f;
 }
 
+textarea {
+    resize: vertical;
+}
+
 .grid-container {
     width: 100%;
 }
