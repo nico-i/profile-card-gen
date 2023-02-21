@@ -3,7 +3,7 @@
 A simple Go HTTP Server for handling multipart-form POST
 requests and generating a profile card PDF from the provided data.
 
-Please be advised: This project was merely meant to be an exercise for myself during my introduction to Go and is therefore by no means considered a finished project.
+_Please be advised: This project was merely meant to be an exercise for myself during my introduction to Go and Docker. It is therefore by no means considered a finished project._
 
 <div style="text-align: center">
 <img src="doc/example.png" alt="Example">
