@@ -1,82 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Profile Card Generator</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet"
-          href="/public/styles/styles.css">
-    <link rel="stylesheet"
-          href="/public/styles/formStyle.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="//cdn3.aoe.com/typo3conf/ext/aoeweb_base/Resources/Public/Images/Favicons/aoe/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="//cdn1.aoe.com/typo3conf/ext/aoeweb_base/Resources/Public/Images/Favicons/aoe/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="//cdn2.aoe.com/typo3conf/ext/aoeweb_base/Resources/Public/Images/Favicons/aoe/favicon-16x16.png">
+    <link rel="stylesheet" href="/public/styles/styles.css">
+    <link rel="stylesheet" href="/public/styles/formStyle.css">
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="//cdn3.aoe.com/typo3conf/ext/aoeweb_base/Resources/Public/Images/Favicons/aoe/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="//cdn1.aoe.com/typo3conf/ext/aoeweb_base/Resources/Public/Images/Favicons/aoe/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="//cdn2.aoe.com/typo3conf/ext/aoeweb_base/Resources/Public/Images/Favicons/aoe/favicon-16x16.png">
 </head>
-<body>
-<div class="h-min-screen container">
-<div class="form-box">
-<h1>AOE Profile Card Generator</h1>
-<form action="/gen" method="post" enctype="multipart/form-data">
-    <div class="grid-container" style="grid-template-columns: 1fr 1fr 1fr;">
-    <label for="firstname" class="">Firstname*
-        <input required type="text" name="firstname" id="firstname">
-    </label>
-    <label for="lastname">Lastname*
-        <input required type="text" name="lastname" id="lastname">
-    </label>
-    <label for="role">Role*
-        <input required type="text" name="role" id="role">
-    </label>
-    <label for="team">Team*
-        <input required type="text" name="team" id="team">
-    </label>
-    <label for="works_at">Works at*
-        <input required type="text" name="works_at" id="works_at">
-    </label>
-    <label for="city">Lives in*
-        <input required type="text" name="city" id="city">
-    </label>
-    </div>
-    <label for="hometown" class="w-full">Comes from*
-        <input required type="text" name="hometown" id="hometown">
-    </label>
 
-    <label for="quote" class="w-full">Quote*
-        <textarea class="w-full" required rows="5" name="quote" id="quote"></textarea>
-    </label>
-    <div class="grid-container" style="grid-template-columns: 1fr 1fr;">
-        <label>Has worked at
-            <input type="text" name="has_worked_at">
-            <input type="text" name="has_worked_at">
-            <input type="text" name="has_worked_at">
-        </label>
-        <label>Skills**
-            <input required type="text" name="skills">
-            <input type="text" name="skills">
-            <input type="text" name="skills">
-        </label>
-        <label>Interests**
-            <input required type="text" name="interests">
-            <input type="text" name="interests">
-            <input type="text" name="interests">
-        </label>
-        <label>Other
-            <input type="text" name="other">
-            <input type="text" name="other">
-            <input type="text" name="other">
-        </label>
+<body>
+    <div style="min-height: 100vh; padding: 5rem 0; display: flex; justify-content: center;">
+        <div style=" width: 50em;
+    background-color: white;
+    box-shadow: 0 4px 0 rgba(255, 255, 255, 0.46),
+      0 15px 35px rgba(216, 225, 233, 0.8);
+    padding: 1rem 2rem;
+    border-radius: 8px;">
+            <h1>AOE Profile Card Generator</h1>
+            <form action="/gen" method="post" enctype="multipart/form-data">
+                <div style="grid-template-columns: 1fr 1fr 1fr; width: 100%;">
+                    <label for="firstname" class="">Firstname*
+                        <input required type="text" name="firstname" id="firstname">
+                    </label>
+                    <label for="lastname">Lastname*
+                        <input required type="text" name="lastname" id="lastname">
+                    </label>
+                    <label for="role">Role*
+                        <input required type="text" name="role" id="role">
+                    </label>
+                    <label for="team">Team*
+                        <input required type="text" name="team" id="team">
+                    </label>
+                    <label for="works_at">Location*
+                        <input required type="text" name="works_at" id="works_at">
+                    </label>
+                    <label for="city">Living in*
+                        <input required type="text" name="city" id="city">
+                    </label>
+                </div>
+                <label for="hometown" class="w-full">Coming from*
+                    <input required type="text" name="hometown" id="hometown">
+                </label>
+                <label for="quote" class="w-full">Quote*
+                    <textarea class="w-full" required rows="5" name="quote" id="quote"></textarea>
+                </label>
+                <label for="adjective" class="w-full">This adjective describes me best*
+                    <input required type="text" name="adjective" id="adjective">
+                </label>
+                <div class="grid-container" style="grid-template-columns: 1fr 1fr;">
+                    <label>I have worked for
+                        <input type="text" name="has_worked_at">
+                        <input type="text" name="has_worked_at">
+                        <input type="text" name="has_worked_at">
+                    </label>
+                    <label>I know about**
+                        <input required type="text" name="skills">
+                        <input type="text" name="skills">
+                        <input type="text" name="skills">
+                    </label>
+                    <label>This makes me happy**
+                        <input required type="text" name="happy">
+                        <input type="text" name="happy">
+                        <input type="text" name="happy">
+                    </label>
+                    <label>My secret burden(s)**
+                        <input required type="text" name="burden">
+                        <input type="text" name="burden">
+                    </label>
+                    <label>My childhood hero(s)**
+                        <input required type="text" name="heros">
+                        <input type="text" name="heros">
+                    </label>
+                </div>
+                <label for="photo" class="w-full">Select a photo*
+                    <input class="cursor-pointer" required id="photo" name="photo" type="file"
+                        accept=".png,.jpg" /><br />
+                    <span class="hint">Include a square image of yourself of the type ".png" or ".jpg".</span>
+                </label>
+                <p class="footmarks">
+                    *required
+                    **at least one entry is required
+                </p>
+                <div class="container w-full text-center">
+                    <button type="submit">Download Profile Card</button>
+                </div>
+            </form>
+        </div>
     </div>
-    <label for="photo" class="w-full">Select a photo*
-        <input class="cursor-pointer" required id="photo" name="photo" type="file" accept=".png,.jpg"/><br />
-        <span class="hint">Include a square image of yourself of the type ".png" or ".jpg".</span>
-    </label>
-    <p class="footmarks">
-        *required
-        **at least one entry is required
-    </p>
-    <div class="container w-full text-center">
-    <button type="submit">Download Profile Card</button>
-    </div>
-</form>
-</div></div>
 </body>
+
 </html>

@@ -5,81 +5,92 @@
     <title>Profile Card</title>
     <meta charset="UTF-8">
     <base href={{ .BasePath }}>
-    <link rel="stylesheet"
-          href="/public/styles/styles.css" media="print">
-    <link rel="stylesheet"
-          href="/public/styles/styles.css">
-    <link rel="stylesheet"
-          href="/public/styles/cardStyle.css" media="print">
-    <link rel="stylesheet"
-          href="/public/styles/cardStyle.css">
+    <link rel="stylesheet" href="/public/styles/styles.css" media="print">
+    <link rel="stylesheet" href="/public/styles/styles.css">
+    <link rel="stylesheet" href="/public/styles/cardStyle.css" media="print">
+    <link rel="stylesheet" href="/public/styles/cardStyle.css">
 </head>
 
 <body>
-<img src="/public/images/bg.jpg" alt="Background image" id="bg">
-<img src="data:image/png;base64,{{.User.Photo}}" alt="User image" id="photo"/>
-<blockquote id="quote">{{ .User.Quote }}</blockquote>
-<div id="details">
-    <h1 style="margin-bottom: 0.3rem;">{{ .User.Firstname }} {{ .User.Lastname }}</h1>
-    <ul>
-        <li>Role: {{ .User.Role }}</li>
-        <li>Team: {{ .User.Team }}</li>
-        <li>Location: {{ .User.WorksAt }}</li>
-    </ul>
-</div>
-<!-- Lists start here -->
-<!-- 1. Row -->
-<div id="hometown">
-    <h2>Comes from</h2>
-    <ul>
-        <li>{{ .User.Hometown}}</li>
-    </ul>
-</div>
-<div id="city">
-    <h2>Lives in</h2>
-    <ul>
-        <li>{{ .User.City}}</li>
-    </ul>
-</div>
-<!-- 2. Row -->
-<div id="workedFor">
-    <h2>Has worked for</h2>
-    <ul>
-        {{ range .User.HasWorkedAt }}
-        <li>{{ . }}</li>
+    <img src="/public/images/bg.jpg" alt="Background image" id="bg">
+    <img src="data:image/png;base64,{{.User.Photo}}" alt="User image" id="photo" />
+    <blockquote id="quote">{{ .User.Quote }}</blockquote>
+    <div id="details">
+        <h1 style="margin-bottom: 0.3rem;">{{ .User.Firstname }} {{ .User.Lastname }}</h1>
+        <ul>
+            <li>Role: {{ .User.Role }}</li>
+            <li>Team: {{ .User.Team }}</li>
+            <li>Location: {{ .User.WorksAt }}</li>
+        </ul>
+    </div>
+
+    <div class="col1">
+        <div>
+            <h3>Coming from</h3>
+            <ul>
+                <li>{{ .User.Hometown}}</li>
+            </ul>
+        </div>
+        <div>
+            <h3>Living in</h3>
+            <ul>
+                <li>{{ .User.City}}</li>
+            </ul>
+        </div>
+        {{ if .User.HasWorkedAt }}
+        <div>
+            <h3>Have worked for</h3>
+            <ul>
+                {{ range .User.HasWorkedAt }}
+                <li>{{ . }}</li>
+                {{ end }}
+            </ul>
+        </div>
         {{ end }}
-    </ul>
-</div>
-<div id="interests">
-    <h2>Is interested in</h2>
-    <ul>
-        {{ range .User.Interests }}
-        <li>{{ . }}</li>
-        {{ end }}
-    </ul>
-</div>
-<!-- 3. Row -->
-<div id="skills">
-    <h2>Knows about</h2>
-    <ul>
-        {{ range .User.Skills }}
-        <li>{{ . }}</li>
-        {{ end }}
-    </ul>
-</div>
-{{ if .User.Other }}
-<div id="other">
-    <h2>Other</h2>
-    <ul>
-        {{ range .User.Other }}
-        <li>{{ . }}</li>
-        {{ end }}
-    </ul>
-</div>
-{{ end }}
-<!-- Separator -->
-<div id="separator">
-</div>
+        <div>
+            <h3>Know about</h3>
+            <ul>
+                {{ range .User.Skills }}
+                <li>{{ . }}</li>
+                {{ end }}
+            </ul>
+        </div>
+    </div>
+    <div class="col2">
+        <div>
+            <h3>This adjective describes me
+                the best</h3>
+            <ul>
+                <li>{{ .User.Adjective}}</li>
+            </ul>
+        </div>
+        <div>
+            <h3>That makes me happy</h3>
+            <ul>
+                {{ range .User.Happy }}
+                <li>{{ . }}</li>
+                {{ end }}
+            </ul>
+        </div>
+
+        <div>
+            <h3>My secret burden</h3>
+            <ul>
+                {{ range .User.Burdens }}
+                <li>{{ . }}</li>
+                {{ end }}
+            </ul>
+        </div>
+        <div>
+            <h3>My childhood hero</h3>
+            <ul>
+                {{ range .User.Heros }}
+                <li>{{ . }}</li>
+                {{ end }}
+            </ul>
+        </div>
+
+    </div>
 </body>
 
 </html>

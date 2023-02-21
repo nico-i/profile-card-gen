@@ -32,15 +32,18 @@ func GenerateTemplateData(r *http.Request) (TemplateData, error) {
 			WorksAt:   r.PostFormValue("works_at"),
 			Hometown:  r.PostFormValue("hometown"),
 			Quote:     r.PostFormValue("quote"),
+			Adjective: r.PostFormValue("adjective"),
 		},
 		BasePath: "http://" + r.Host + r.URL.Path,
 	}
 	data.User.HasWorkedAt = deleteAndEscapeStringArr(r.Form["has_worked_at"])
 	data.User.Skills = deleteAndEscapeStringArr(r.Form["skills"])
-	data.User.Interests = deleteAndEscapeStringArr(r.Form["interests"])
-	data.User.Other = deleteAndEscapeStringArr(r.Form["other"])
-	if len(data.User.Other) == 0 {
-		data.User.Other = nil
+	data.User.Happy = deleteAndEscapeStringArr(r.Form["happy"])
+	data.User.Burdens = deleteAndEscapeStringArr(r.Form["burden"])
+	data.User.Heros = deleteAndEscapeStringArr(r.Form["heros"])
+
+	if len(data.User.HasWorkedAt) == 0 {
+		data.User.HasWorkedAt = nil
 	}
 	_, base64Str, err := HandleImageUpload(r, "photo")
 	if err != nil {

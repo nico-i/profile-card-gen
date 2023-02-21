@@ -7,6 +7,14 @@ requests and generating a profile card PDF from the provided data.
 <img src="doc/example.png" alt="Example">
 </div>
 
+## Prerequisites
+
+Make sure you have the following installed on your machine:
+
+- [Go](https://golang.org/doc/install)
+- [wkhtmltopdf](https://wkhtmltopdf.org/downloads.html)
+- optional: [Docker](https://docs.docker.com/get-docker/)
+
 ## Installation
 
 1. Clone the repository 

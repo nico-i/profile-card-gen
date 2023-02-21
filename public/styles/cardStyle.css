@@ -1,130 +1,110 @@
 @page {
-    /* dimensions for the whole page */
-    size: A5;
-    margin: 0;
+  /* dimensions for the whole page */
+  size: A5;
+  margin: 0;
 }
 
 html {
-    /* off-white, so body edge is visible in browser */
-    background: var(--bg-color-light);
+  /* off-white, so body edge is visible in browser */
+  background: var(--bg-color-light);
 }
 
 body {
-    /* A5 dimensions */
-    width: 297.1mm;
-    height: 209mm;
-    font-size: 12pt;
+  /* A5 dimensions */
+  width: 297.1mm;
+  height: 209mm;
+  font-size: 12pt;
 }
 
-h1, h2, h3, h4 {
-    color: #142D68;
+h1 {
+  color: #142d68;
+}
+
+h2,
+h3,
+h4 {
+  color: #142d68;
+  line-height: 1.5rem;
 }
 
 ul {
-    max-width: 200px;
-    margin: 11px 0 36px 23px;
-    padding: 0;
-    list-style: none; /* Remove default bullets */
+  max-width: 200px;
+  margin: 11px 0 0 23px;
+  padding: 0;
+  list-style: none; /* Remove default bullets */
 }
 
 ul li::before {
-    content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
-    color: #6C4E91;/* Change the color */
-    font-weight: bold; /* If you want it to be bold */
-    display: inline-block; /* Needed to add space between the bullet and the text */
-    width: 1em; /* Also needed for space (tweak if needed) */
-    line-height: 1.8;
-    margin-left: -15px;
+  content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: #6c4e91; /* Change the color */
+  font-weight: bold; /* If you want it to be bold */
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1em; /* Also needed for space (tweak if needed) */
+  line-height: 1.8;
+  margin-left: -15px;
 }
 
 #bg {
-    width: 297.1mm;
-    height: 209mm;
-    top: 0;
-    position: absolute;
-    z-index: -10;
+  width: 297.1mm;
+  height: 209mm;
+  top: 0;
+  position: absolute;
+  z-index: -10;
 }
 
 #photo {
-    border-radius: 100rem;
-    height: 297px;
-    position: absolute;
-    top: 146px;
-    left: 729px;
+  border-radius: 100rem;
+  height: 297px;
+  position: absolute;
+  top: 146px;
+  left: 729px;
 }
 
 #quote {
-    margin: 0;
-    padding: 0;
-    font-style: italic;
-    position: absolute;
-    top: 515px;
-    left: 680px;
-    font-size: 16pt;
-    width: 400px;
-    text-align: center;
-    color: gray;
+  margin: 0;
+  padding: 0;
+  font-style: italic;
+  position: absolute;
+  top: 515px;
+  left: 680px;
+  font-size: 16pt;
+  width: 400px;
+  text-align: center;
+  color: gray;
 }
 
 #details {
-    position: absolute;
-    top: 142px;
-    left: 50px;
-    font-size: 14pt;
+  position: absolute;
+  top: 142px;
+  left: 50px;
+  font-size: 14pt;
 }
 
 #details > ul {
-    max-width: 1000px;
-    margin: 0;
-    list-style-type: none;
-    line-height: 1.35;
+  max-width: 1000px;
+  margin: 0;
+  list-style-type: none;
+  line-height: 1.35;
 }
 
 #details > ul li::before {
-    content: none;
+  content: none;
 }
 
-#hometown {
-    position: absolute;
-    left: 51px;
-    top: 299px;
+.col1 {
+  position: absolute;
+  left: 50px;
+  top: 285px;
 }
 
-#city {
-    position: absolute;
-    left: 379px;
-    top: 299px;
+.col1 > div,
+.col2 > div {
+  margin-bottom: 1.25rem;
 }
 
-#workedFor {
-    position: absolute;
-    left: 51px;
-    top: 400px;
-}
-
-#interests {
-    position: absolute;
-    left: 379px;
-    top: 400px;
-}
-
-#skills {
-    position: absolute;
-    left: 51px;
-    top: 581px;
-}
-
-#other {
-    position: absolute;
-    left: 379px;
-    top: 581px;
-}
-
-#separator {
-    position: absolute;
-    left: 313px;
-    top: 293px;
-    height: 418px;
-    width: 0.75pt;
-    background-color: #454545;
+.col2 {
+  max-width: 250px;
+  position: absolute;
+  left: 379px;
+  top: 285px;
 }

@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
-	"github.com/gorilla/mux"
 	"html/template"
 	"log"
 	"net/http"
+
+	"github.com/gorilla/mux"
 )
 
 // User represents the user wanting to generate
@@ -15,6 +16,7 @@ type User struct {
 	Lastname    string            `json:"lastname"`
 	Role        string            `json:"role"`
 	Team        string            `json:"team"`
+	Adjective   string            `json:"adjective"`
 	WorksAt     string            `json:"works_at"`
 	City        string            `json:"city"`
 	Hometown    string            `json:"hometown"`
@@ -23,7 +25,9 @@ type User struct {
 	HasWorkedAt []string          `json:"has_worked_at"`
 	Skills      []string          `json:"skills"`
 	Interests   []string          `json:"interests"`
-	Other       []string          `json:"other"`
+	Burdens     []string          `json:"burdens"`
+	Happy       []string          `json:"happy"`
+	Heros       []string          `json:"heros"`
 	Errors      map[string]string `json:"errors"`
 }
 
