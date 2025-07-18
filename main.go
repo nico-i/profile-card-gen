@@ -65,7 +65,6 @@ func GenerateProfileCard(w http.ResponseWriter, r *http.Request) {
 		handleError(w, err, http.StatusInternalServerError)
 		return
 	}
-	escapeNonArrayTemplateDate(&data)
 	data.Preview = false
 	pdfBytes, err := GeneratePDF(&data, "./public/templates/aoe-profile-card.html")
 	if err != nil {
