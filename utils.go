@@ -5,14 +5,12 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
-	"html"
 	"image/jpeg"
 	"image/png"
 	"io"
 	"log"
 	"mime/multipart"
 	"net/http"
-	"reflect"
 )
 
 // GenerateTemplateData extracts the relevant data from a multipart form and returns types.TemplateData
@@ -124,19 +122,8 @@ func deleteAndEscapeStringArr(s []string) []string {
 	var r []string
 	for _, str := range s {
 		if str != "" {
-			r = append(r, html.EscapeString(str))
+			r = append(r, str)
 		}
 	}
 	return r
-}
-
-func escapeNonArrayTemplateDate(data *TemplateData) {
-	value := reflect.ValueOf(data).Elem()
-	for i := 0; i < value.NumField(); i++ {
-		field := value.Field(i)
-		if field.Type() == reflect.TypeOf("") {
-			str := field.Interface().(string)
-			field.SetString(html.EscapeString(str))
-		}
-	}
 }
